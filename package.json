@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "deploy" :"yarn build && node ./dist server.js",
     "dev:server": "ts-node-dev --inspect --transpile-only --exit-child --ignore node_modules src/server.ts"
   },
   "devDependencies": {

@@ -20,6 +20,7 @@ export default class UserController {
 
   public async createUser(req: Request, res: Response) {
     const { username } = req.body
+    console.log(username)
     const userExist = await prisma.user.findFirst({
       where: {
         username: username

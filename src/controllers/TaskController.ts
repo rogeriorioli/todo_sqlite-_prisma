@@ -10,9 +10,14 @@ export default class TaskController {
     const getUser = await prisma.user.findUnique({
       where: {
         id: userid?.toString(),
+        
       },
       include: {
-        taks: true,
+        taks: {
+          orderBy : {
+            created_at : `desc`
+          }
+        }
       },
     })
     if (getUser) {
@@ -30,7 +35,7 @@ export default class TaskController {
       }
     })
     if (newtask) {
-      return res.status(200).json({ newtask, message: `task ${title} criada com sucesso` })
+      return res.status(200).json({ newtask, message: `tarefa ${title} criada com sucesso` })
     }
     return res.status(401).json({ mesage: 'algo de errado aconteceu' })
   }
