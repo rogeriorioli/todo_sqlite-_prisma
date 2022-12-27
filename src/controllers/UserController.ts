@@ -19,8 +19,7 @@ export default class UserController {
   }
 
   public async createUser(req: Request, res: Response) {
-    const { username } = req.body
-    console.log(username)
+    const { username }  = req.body
     const userExist = await prisma.user.findFirst({
       where: {
         username: username
@@ -35,7 +34,7 @@ export default class UserController {
         const newUser = await prisma.user.create({
           data: {
             name: data.name,
-            username:data.login,
+            username: username,
             avatar:data.avatar_url
           }
         })

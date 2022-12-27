@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "deploy" :"yarn prisma generate && yarn build && cd dist && node server.js",
+    "clear" : "rm -rf dist",
+    "deploy" :"yarn clear && yarn prisma generate && yarn build && cd dist && node server.js",
     "dev:server": "ts-node-dev --inspect --transpile-only --exit-child --ignore node_modules src/server.ts"
   },
   "devDependencies": {
