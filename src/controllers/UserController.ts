@@ -26,7 +26,7 @@ export default class UserController {
       }
     })
     if (userExist) {
-      return res.status(200).json({ message: 'usuario ja cadastrado', ...userExist })
+      return res.status(200).json({ messages: ['usuario ja cadastrado', 'usuário autenticado'],  ...userExist })
     }
     await axios.get(`https://api.github.com/users/${username}`)
     .then(async success => {
